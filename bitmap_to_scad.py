@@ -59,15 +59,34 @@ def main():
 
     # Make three variations of the input image
     try:
-        color_image = cv2.imread(input_filename)
+        color_image = cv2.imread(input_filename, cv2.IMREAD_UNCHANGED)
         grayscale_image = cv2.imread(input_filename, cv2.IMREAD_GRAYSCALE)
+        # Does the input image have transparency? If so, the grayscale might be broken
+        shape = color_image.shape
+        if shape[2] == 4:
+            if args.debug:
+                print("Input image has transparency, masking transparency to white")
+            
+            # Via https://stackoverflow.com/questions/48816703/opencv-turn-transparent-part-of-png-white
+            alpha_channel = color_image[:, :, 3]
+            _, mask = cv2.threshold(alpha_channel, 254, 255, cv2.THRESH_BINARY)
+            color = color_image[:,:,:3]
+            color_image = cv2.bitwise_not(cv2.bitwise_not(color, mask=mask))
+            if args.debug:
+                non_transparent_file = os.path.splitext(input_filename)[0] + "-notransparent.png"
+                try:
+                    success = cv2.imwrite(non_transparent_file, color_image)
+                    print("Wrote reference non-transparent image " + non_transparent_file)
+                except Exception as e:
+                    print("Failed to write non-transparent image " + non_transparent_file)
+            grayscale_image = cv2.cvtColor(color_image, cv2.COLOR_BGR2GRAY)
+
         paths_blank_image = np.zeros(color_image.shape, dtype=np.uint8)
     except Exception as e:
         print("Failed to read image from file " + input_filename + " error: " + str(e))
         return 1
 
     print("Input image dimensions: " + str(color_image.shape))
-
 
     colors = getDebugColors()
 
