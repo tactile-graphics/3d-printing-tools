@@ -24,7 +24,7 @@ Chris has been using low tack painters tape to tape down paper.
 * Use 0.2mm layer height. Any additional layers increase the likelihood that the extruded material will break off when touched. (80% nozzle diameter is a good rule of thumb for the maximum layer height). .2mm has been found to be tactually discernable.
 * Make sure to pay attention to the initial layer width factor and other initial layer settings. These will over ride your settings and may lead to your print coming out differently then expected as we are only printing one layer.
 * Your line width will limit how fine of lines you can print. If your lines are too fine for your set line width the slicer will omit them from the print. A line width of .24mm has been found satisfactory for a range of tactually discernible lines. 
-![Not thin enough line width setting](https://github.com/tactile-graphics/3d-printing/trials/1_14_22 polar coords and print process/trial1.jpg)
+![Not thin enough line width setting](https://github.com/tactile-graphics/guides/tree/main/3d-printing/trials/22_1_14_trials/trial1.jpg)
 
 
 # Print Settings
@@ -54,9 +54,9 @@ Turn on Print Thin Walls to avoid losing fine lines. Again, this is a custom set
 ![Screenshot of Walls setting](img/walls.png)
 
 ### Infill
-You can get the slicer to replace solid fills with infill patterns. You will need to change the Top/Bottom settings to 0 so that there are 0 top layers and 0 bottom layers. This can have the added benefit of adding multiple textures to a graphic without the need to do any design alteration. As well having infill patterns instead of solid fills can help with paper warping due to plastic shrinkage. Large solids can shrink and cause paper to warp up![warped paper]
+You can get the slicer to replace solid fills with infill patterns. You will need to change the Top/Bottom settings to 0 so that there are 0 top layers and 0 bottom layers. This can have the added benefit of adding multiple textures to a graphic without the need to do any design alteration. As well having infill patterns instead of solid fills can help with paper warping due to plastic shrinkage. Large solids can shrink and cause paper to warp up![warped paper](https://github.com/tactile-graphics/guides/blob/main/3d-printing/trials/22_1_24_trials/warp.jpeg)
 
-![Nice line infilled tactile map](https://github.com/tactile-graphics/3d-printing/trials/22_1_24_trials/infill_map.jpeg)
+![Nice line infilled tactile map](https://github.com/tactile-graphics/guides/blob/main/3d-printing/trials/22_1_24_trials/infill_map.jpeg)
 
 Pay attention to the following infill settings as they will determine your print speed/ how tactually discernable the infill is:
 * Infill Line Width
