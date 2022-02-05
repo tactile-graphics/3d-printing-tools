@@ -2,7 +2,7 @@
 
 # Paper Type
 Tyler has had good results with Canon Photo Paper Glossy (GP-701)
-Chris has had good results with 110lb cardstock
+Chris has had good results with 80lb-110lb cardstock
 
 # Printer Type
 Tyler uses an Ender 3 Pro
