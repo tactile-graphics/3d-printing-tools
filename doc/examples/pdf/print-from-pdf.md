@@ -9,7 +9,7 @@ You can find the starting pdf diagram [here](resources/braille-font-test.pdf).
 
 You will need inkscape installed on your system
 
-Create an alias for inkscape that points to the applications executable
+Create an alias for inkscape that points to the applications executable. 
 
 ### Windows
 ```
