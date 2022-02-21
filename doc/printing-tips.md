@@ -67,11 +67,20 @@ Pay attention to the following infill settings as they will determine your print
 ### Ironing
 Some printers have the ability to go over a print with a very thin layer of filament to promote a smoother surface finish. While this has proven successful in trials it adds a large amount of time to the print and is not necessary if you dial in your settings appropriately.
 
+### Z off-set
+While not availble in the Cura stock software, a [z-offset plugin](https://marketplace.ultimaker.com/app/cura/plugins/fieldofview/ZOffsetPlugin) is availble via the cura marketplace. As well a prints G-code can be modified with the following to add a z-offset to a print:
+`G28 Z0 //home printer`
+`G92 Z0.1 //lower print head .1mm`
+
+Z-offsets are imperative when working with thicker materials. If a z-offset is not sufficiently set material can acculate on the nozzle instead of being deposited and lead to holes in the print or stringing. Make sure to measure the material and then use that with the z-offset, some trial and error may be necessary to dial in the value correctly.
+
+![Example of a print with an insufficient z-offset](https://github.com/tactile-graphics/guides/blob/main/3d-printing/trials/22_2_15_trials/trial3.JPEG)
+
 ## Multiple Objects in a print
 It may be helpful to import a tactile graphic into your slicer in multiple pieces. This can be helpful if you would like to have multiple infills or layer heights on a print.
 
 ## Printing Braille
-TODO: Add best practices for design (fonts/sizes) and slicing
+For more information on 3D printig braille checkout the wiki page [3D printing braille](https://github.com/tactile-graphics/guides/wiki/Braille#3d-printing-braille).
 
 # Legal
 
