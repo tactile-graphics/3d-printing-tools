@@ -9,7 +9,7 @@ Tyler uses an Ender 3 Pro
 Chris currently uses an Ultimaker S5 
 
 # Printer Filament
-Chris has had good results with PLA. The filament adheres to cardstock but will flake off if the paper is roughly folded. This does not limit usability and is simlar to current tactile graphics produced using micro-encapsulated paper (swell paper). 
+Chris has had good results with PLA. The filament adheres to cardstock but will flake off if the paper is roughly folded. This does not limit usability and is simlar to current tactile graphics produced using micro-encapsulated paper (swell paper). Chris has started using PET-G. It has excellent adherence to the cardstock. 
 
 Tyler has been testing out PET-G and has found it adheres very well on photo paper.
 
