@@ -19,6 +19,7 @@ import argparse
 import os
 import math
 import scad_generator
+import subprocess
 
 def getDebugColors():
     #https://stackoverflow.com/questions/16658018/channel-order-in-opencv
@@ -49,6 +50,7 @@ def main():
     parser.add_argument('-y', '--ymax', dest='ymax', type=int, required=False, help="Uniformly scale the model to fit a maximum Z axis distance.")
     parser.add_argument('-z', '--zheight', dest='zheight', type=int, required=False, default=0.2, help="Height of the model to generate")
     parser.add_argument('-r', '--resolution', dest='resolution', type=int, required=False, help="Resolution of the input image in pixels per inch.")
+    parser.add_argument('-stl','--render-stl', dest='renderstl', required=False, action='store_true', help="Attempt to generate a .stl file")
     args = parser.parse_args()
     input_filename = args.inputfile
     if not os.path.isfile(input_filename):
@@ -177,6 +179,26 @@ def main():
             print("Wrote reference path image to: " + path_file_name)
         except Exception as e:
             print("Failed to write path image: " + str(e))
+            return 1
+
+    if args.renderstl:
+        print("Rendering STL...")
+        stl_file_name = os.path.splitext(input_filename)[0] +  ".stl"
+        stlargs = ["openscad", "-o", stl_file_name, scad_file_name]
+        try:
+            result = subprocess.run(stlargs)
+            print("OpenSCAD Completed.")
+            if result.stderr:
+                print(result.stderr)
+            if result.stdout:
+                print(result.stdout)
+            if result.returncode == 0:
+                print("Successfully converted to STL. Generated STL file: " + stl_file_name)
+            else:
+                print("Failed to convert to STL")
+        except Exception as e:
+            print("Failed to launch OpenSCAD. Is it installed?")
+            print("Exception: " + str(e))
             return 1
 
     return 0
